@@ -1,0 +1,45 @@
+server:
+  port: 8801
+spring:
+  cloud:
+    consul:
+      host: 192.168.1.120
+      port: 8500
+      discovery:
+        instance-id: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
+  application:
+    name: UserServer2
+  profiles:
+    active: native
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: admin
+    url: jdbc:mysql://192.168.1.120:3306/mysql_userserver?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&characterSetResults=utf8
+  jpa:
+    database: mysql
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  devtools:
+    restart:
+      enabled: true
+    livereload:
+      enabled: true
+logging:
+  level:
+    root: error
+    com.cn: debug
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    restart:
+      enabled: true
+    shutdown:
+      enabled: true
+    health:
+      enabled: true
+      show-details: always
