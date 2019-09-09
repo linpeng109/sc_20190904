@@ -10,6 +10,6 @@ import org.springframework.stereotype.Repository;
 public interface UserBaseDao extends JpaRepository<UserBase, String> {
     public Page<UserBase> findByUsernameStartingWith(String username, Pageable pageable);
 
-    public Page<UserBase> findByUsernameLikeAndEnableIsTrue(String username, Pageable pageable);
+    public Page<UserBase> findByUsernameContainingAndEnableIsTrue(String username, Pageable pageable);
 }
 

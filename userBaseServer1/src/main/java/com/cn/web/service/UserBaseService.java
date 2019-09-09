@@ -33,7 +33,7 @@ public class UserBaseService {
     }
 
     public Page<UserBase> findByUsernameLikeAndAndEnableIsTrue(String username, Pageable pageable) {
-        return userBaseDao.findByUsernameLikeAndEnableIsTrue(username, pageable);
+        return userBaseDao.findByUsernameContainingAndEnableIsTrue(username, pageable);
     }
 
     public long count() {
