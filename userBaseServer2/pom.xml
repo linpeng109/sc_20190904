@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>sc_20190903</artifactId>
-        <groupId>com.com.cn</groupId>
+        <groupId>com.cn</groupId>
         <version>1.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>

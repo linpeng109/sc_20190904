@@ -11,7 +11,6 @@ import java.io.IOException;
 public class MyFtpLet extends DefaultFtplet {
     @Override
     public FtpletResult onLogin(FtpSession session, FtpRequest request) throws FtpException, IOException {
-//        获取上传文件信息
         String absolutePath = session.getFileSystemView().getHomeDirectory().getAbsolutePath();
         log.debug(absolutePath);
         String filename = request.getArgument();
