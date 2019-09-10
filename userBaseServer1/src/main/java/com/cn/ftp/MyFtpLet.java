@@ -1,13 +1,13 @@
 package com.cn.ftp;
 
-import lombok.Data;
-import lombok.extern.log4j.Log4j;
 import lombok.extern.log4j.Log4j2;
 import org.apache.ftpserver.ftplet.*;
+import org.springframework.context.annotation.Configuration;
 
 import java.io.IOException;
 
 @Log4j2
+@Configuration
 public class MyFtpLet extends DefaultFtplet {
     @Override
     public FtpletResult onLogin(FtpSession session, FtpRequest request) throws FtpException, IOException {
