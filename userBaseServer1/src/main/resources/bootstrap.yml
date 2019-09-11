@@ -44,3 +44,4 @@ logging:
   level:
     root: error
     com.cn: debug
+    com.cn.ftp: debug

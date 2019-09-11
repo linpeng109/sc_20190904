@@ -1,6 +1,8 @@
 package com.cn;
 
-import com.cn.ftp.MyServletContextListener;
+import com.cn.ftp.FtpServerManager;
+import com.cn.ftp.FtpServerManagerServletContextListener;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletContextInitializer;
@@ -19,7 +21,8 @@ public class UserBaseServerApplication implements ServletContextInitializer {
 
     @Override
     public void onStartup(ServletContext servletContext) throws ServletException {
-        servletContext.addListener(MyServletContextListener.class);
+        servletContext.addListener(FtpServerManagerServletContextListener.class);
     }
+
 
 }
