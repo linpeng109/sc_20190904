@@ -2,10 +2,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <name>sc_20190903</name>
-    <description>sc_20190903</description>
+    <name>sc_20190904</name>
+    <description>sc_20190904</description>
     <groupId>com.cn</groupId>
-    <artifactId>sc_20190903</artifactId>
+    <artifactId>sc_20190904</artifactId>
     <packaging>pom</packaging>
     <version>1.0</version>
 
@@ -27,6 +27,7 @@
         <module>userBaseServer1</module>
         <module>userBaseServer2</module>
         <module>gatewayServer</module>
+        <module>ftpserver</module>
     </modules>
 
     <dependencyManagement>

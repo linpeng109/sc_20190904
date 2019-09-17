@@ -18,7 +18,14 @@ public class FtpServerFtplet extends DefaultFtplet {
 
     @Override
     public FtpletResult onLogin(FtpSession session, FtpRequest request) throws FtpException, IOException {
+        log.debug("===="+request.getArgument());
         return super.onLogin(session, request);
+    }
+
+    @Override
+    public FtpletResult onDisconnect(FtpSession session) throws FtpException, IOException {
+        log.debug("FtpServer is disconnected!========================");
+        return super.onDisconnect(session);
     }
 
     @Override

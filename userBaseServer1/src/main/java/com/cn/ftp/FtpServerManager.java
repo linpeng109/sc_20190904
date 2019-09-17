@@ -28,10 +28,11 @@ public class FtpServerManager {
     public FtpServer create() throws IOException {
         //Build Listener
         DataConnectionConfigurationFactory dataConnectionConfigurationFactory = new DataConnectionConfigurationFactory();
-        dataConnectionConfigurationFactory.setActiveLocalPort(10000);
         ListenerFactory listenerFactory = new ListenerFactory();
         listenerFactory.setDataConnectionConfiguration(dataConnectionConfigurationFactory.createDataConnectionConfiguration());
+        listenerFactory.setPort(2221);
         Listener listener = listenerFactory.createListener();
+
         //Build UserManager
         String tmpPath = System.getProperty("java.io.tmpdir") + System.currentTimeMillis() + ".properties";
         File tmpConfig = new File(tmpPath);
@@ -41,6 +42,7 @@ public class FtpServerManager {
         propertiesUserManagerFactory.setFile(tmpConfig);
         propertiesUserManagerFactory.setPasswordEncryptor(new ClearTextPasswordEncryptor());
         UserManager userManager = propertiesUserManagerFactory.createUserManager();
+
         //Build Ftplit
         Map<String, Ftplet> ftpServerFtplets = new HashMap<>();
         ftpServerFtplets.put("default", ftpServerFtplet);

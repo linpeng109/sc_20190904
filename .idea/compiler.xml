@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="ftpserver" />
         <module name="userBaseServer2" />
         <module name="gatewayServer" />
         <module name="userBaseServer1" />
@@ -14,6 +15,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="ftpserver" options="-parameters" />
       <module name="gatewayServer" options="-parameters" />
       <module name="userBaseServer1" options="-parameters" />
       <module name="userBaseServer2" options="-parameters" />
