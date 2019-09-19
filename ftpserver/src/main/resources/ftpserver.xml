@@ -1,22 +1,29 @@
 <server xmlns="http://mina.apache.org/ftpserver/spring/v1"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:beans="http://www.springframework.org/schema/beans"
         xsi:schemaLocation="http://mina.apache.org/ftpserver/spring/v1 http://mina.apache.org/ftpserver/ftpserver-1.0.xsd"
-        id="server"
+        id="fptserver"
         max-logins="500"
         anon-enabled="false"
         max-anon-logins="123"
         max-login-failures="124"
-        login-failure-delay="125">
+        login-failure-delay="125"
+        max-threads="150">
     <listeners>
         <nio-listener name="default" port="2221" idle-timeout="60">
-            <data-connection idle-timeout="60">
-                <active enabled="true" local-address="1.2.3.4" local-port="2323" ip-check="true"/>
-            </data-connection>
+<!--            <data-connection idle-timeout="60">-->
+<!--                <active enabled="true" local-address="localhost" local-port="2323" ip-check="true"/>-->
+<!--            </data-connection>-->
         </nio-listener>
     </listeners>
     <db-user-manager encrypt-passwords="clear">
         <data-source>
-            <beans:bean class="some.datasoure.class"/>
+            <beans:bean class="com.zaxxer.hikari.HikariDataSource">
+                <beans:property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+                <beans:property name="jdbcUrl" value="jdbc:mysql://localhost:3306/mysql_ftpServer?serverTimezone=UTC"/>
+                <beans:property name="username" value="root"/>
+                <beans:property name="password" value="admin"/>
+                <beans:property name="readOnly" value="false"/>
+            </beans:bean>
         </data-source>
         <insert-user>INSERT INTO FTP_USER (userid, userpassword,
             homedirectory, enableflag, writepermission, idletime, uploadrate,
@@ -50,7 +57,7 @@
         <is-admin>
             SELECT userid
             FROM FTP_USER
-            WHERE userid='{userid}' AND userid='admin'
+            WHERE userid='{userid}' AND userid='2c9a303c6d476dce016d47a517d40005'
         </is-admin>
         <authenticate>SELECT userpassword from FTP_USER WHERE userid='{userid}'</authenticate>
     </db-user-manager>

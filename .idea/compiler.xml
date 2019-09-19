@@ -7,9 +7,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="ftpserver" />
-        <module name="gatewayServer" />
         <module name="userBaseServer2" />
+        <module name="gatewayServer" />
+        <module name="ftpserver" />
         <module name="userBaseServer1" />
       </profile>
     </annotationProcessing>

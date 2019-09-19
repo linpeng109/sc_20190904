@@ -19,7 +19,7 @@ spring:
   jpa:
     database: mysql
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     show-sql: true
   devtools:
     restart:
@@ -43,5 +43,5 @@ management:
 logging:
   level:
     root: error
+    org.apache.ftpserver: debug
     com.cn: debug
-    com.cn.ftp: debug
