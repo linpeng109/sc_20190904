@@ -8,14 +8,16 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="userBaseServer2" />
-        <module name="gatewayServer" />
-        <module name="ftpserver" />
+        <module name="ftpServer" />
         <module name="userBaseServer1" />
+        <module name="ftpserver" />
+        <module name="gatewayServer" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="ftpServer" options="-parameters" />
       <module name="ftpserver" options="-parameters" />
       <module name="gatewayServer" options="-parameters" />
       <module name="userBaseServer1" options="-parameters" />
