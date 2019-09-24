@@ -25,29 +25,29 @@ public class FtpUser implements User, Serializable {
     @Column(name = "username", length = 32, unique = true)
     public String username;
 
-    @Column(length = 32)
+    @Column(length = 32, name = "userpassword")
     public String userpassword;
 
-    @Column(name = "home_directory", length = 200)
-    public String homedirectory;
+    @Column(name = "homedirectory", length = 200)
+    public String homedirectory = "d:/ftp/" + username;
 
-    @Column(name = "enable_flag")
+    @Column(name = "enableflag")
     @Type(type = "java.lang.Boolean")
-    public boolean enableflag;
+    public boolean enableflag = true;
 
-    @Column(name = "write_permission")
+    @Column(name = "writepermission")
     @Type(type = "java.lang.Boolean")
-    public boolean writepermission;
+    public boolean writepermission = true;
 
-    @Column(name = "idle_time")
-    @Type(type = "java.lang.Long")
-    public long idletime;
+    @Column(name = "idletime")
+    @Type(type = "java.lang.Integer")
+    public int idletime;
 
-    @Column(name = "upload_rate")
+    @Column(name = "uploadrate")
     @Type(type = "java.lang.Long")
     public long uploadrate;
 
-    @Column(name = "download_rate")
+    @Column(name = "downloadrate")
     @Type(type = "java.lang.Long")
     public long downloadrate;
 
@@ -59,36 +59,37 @@ public class FtpUser implements User, Serializable {
 
     @Override
     public String getName() {
-        return null;
+        return this.getUsername();
     }
 
     @Override
     public String getPassword() {
-        return null;
+        return this.userpassword;
     }
 
     @Override
     public List<? extends Authority> getAuthorities(Class<? extends Authority> aClass) {
-        return null;
+        return this.authorities;
     }
 
     @Override
     public AuthorizationRequest authorize(AuthorizationRequest authorizationRequest) {
-        return null;
+        System.out.println(authorizationRequest.toString());
+        return authorizationRequest;
     }
 
     @Override
     public int getMaxIdleTime() {
-        return 0;
+        return this.idletime;
     }
 
     @Override
     public boolean getEnabled() {
-        return false;
+        return this.enableflag;
     }
 
     @Override
     public String getHomeDirectory() {
-        return null;
+        return this.homedirectory;
     }
 }

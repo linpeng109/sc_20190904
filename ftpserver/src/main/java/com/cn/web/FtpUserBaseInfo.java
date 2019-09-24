@@ -5,6 +5,7 @@ import com.cn.jpa.entity.FtpUser;
 import com.cn.web.service.FtpAuthorityService;
 import com.cn.web.service.FtpUserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -33,9 +34,16 @@ public class FtpUserBaseInfo {
         FtpUser abcd = new FtpUser();
         abcd.setUsername("abcd");
         abcd.setUserpassword("abcd");
+        abcd.setHomedirectory("d:/ftp/abcd");
         abcd.setWritepermission(true);
         abcd.setAuthorities(authorities);
         ftpUserService.save(abcd);
+
+        return "SUCCESS";
+    }
+
+    @RequestMapping("/insert/{num}")
+    public String insert(@PathVariable(name = "num") int num){
 
         return "SUCCESS";
     }

@@ -7,10 +7,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="userBaseServer2" />
-        <module name="ftpServer" />
-        <module name="userBaseServer1" />
         <module name="ftpserver" />
+        <module name="ftpServer" />
+        <module name="userBaseServer2" />
+        <module name="userBaseServer1" />
+        <module name="sinomineServer" />
         <module name="gatewayServer" />
       </profile>
     </annotationProcessing>
@@ -20,6 +21,7 @@
       <module name="ftpServer" options="-parameters" />
       <module name="ftpserver" options="-parameters" />
       <module name="gatewayServer" options="-parameters" />
+      <module name="sinomineServer" options="-parameters" />
       <module name="userBaseServer1" options="-parameters" />
       <module name="userBaseServer2" options="-parameters" />
     </option>

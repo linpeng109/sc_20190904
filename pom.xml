@@ -28,6 +28,7 @@
         <module>userBaseServer2</module>
         <module>gatewayServer</module>
         <module>ftpserver</module>
+        <module>sinomineServer</module>
     </modules>
 
     <dependencyManagement>
