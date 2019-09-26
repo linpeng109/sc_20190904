@@ -5,5 +5,5 @@ import javax.persistence.Entity;
 
 @Entity
 @DiscriminatorValue(value = "ActiionNews")
-public class ActiionNews extends News {
+public class ActionNews extends News {
 }

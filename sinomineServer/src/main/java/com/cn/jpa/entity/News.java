@@ -37,7 +37,7 @@ public class News implements Serializable {
     @Type(type = "java.util.Date")
     public Date createTime = new Date();
 
-    @Column(name = "newcontext", length = 255, nullable = false)
+    @Column(name = "newscontext", length = 255, nullable = false)
     public String newscontext;
 
     @ManyToMany
