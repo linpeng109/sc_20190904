@@ -14,12 +14,12 @@ import java.util.List;
 @Table(name = "support")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "supportType")
-@GenericGenerator(name = "system-uuid", strategy = "uuid")
+@GenericGenerator(name = "support-uuid", strategy = "uuid")
 @Data
 public class Support implements Serializable {
     @Id
-    @GeneratedValue(generator = "system-uuid")
-    @Column(length = 32, name = "supportid")
+    @GeneratedValue(generator = "support-uuid")
+    @Column(length = 32, name = "supportId")
     public String supportId;
 
     @Column(length = 32, name = "title")
@@ -32,16 +32,16 @@ public class Support implements Serializable {
     public boolean enable;
 
     @Type(type = "java.util.Date")
-    @Column(name = "createtime")
-    public Date createTime;
+    @Column(name = "createTime")
+    public Date createTime = new Date();
 
     @Type(type = "java.lang.Integer")
-    @Column(name = "ordernum")
+    @Column(name = "orderNum")
     public int orderNum;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "support_picture",
-            joinColumns = {@JoinColumn(name = "surpportId", referencedColumnName = "surpportId")},
+            joinColumns = {@JoinColumn(name = "supportId", referencedColumnName = "supportId")},
             inverseJoinColumns = {@JoinColumn(name = "pictureId", referencedColumnName = "pictureId")})
     public List<Picture> pictureList = new ArrayList<Picture>();
 }

@@ -13,21 +13,21 @@ import java.util.List;
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "newtype", length = 32)
-@GenericGenerator(name = "system-uuid", strategy = "uuid")
+@GenericGenerator(name = "news-uuid", strategy = "uuid")
 @Table(name = "news")
 @Data
 public class News implements Serializable {
     @Id
-    @GeneratedValue(generator = "system-uuid")
-    @Column(length = 32, name = "newsid")
-    public String newsid;
+    @GeneratedValue(generator = "news-uuid")
+    @Column(length = 32, name = "newsId")
+    public String newsId;
 
     @Column(name = "newtitle", length = 100)
     public String newtitle;
 
-    @Column(name = "ordernum", unique = true, nullable = false)
+    @Column(name = "orderNum", unique = true, nullable = false)
     @Type(type = "java.lang.Integer")
-    public int ordernum;
+    public int orderNum;
 
     @Column(name = "enable")
     @Type(type = "java.lang.Boolean")
@@ -40,11 +40,11 @@ public class News implements Serializable {
     @Column(name = "newscontext", length = 255, nullable = false)
     public String newscontext;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
-            name = "news_pics",
-            joinColumns = {@JoinColumn(name = "newid", referencedColumnName = "newid")},
-            inverseJoinColumns = {@JoinColumn(name = "pictureid", referencedColumnName = "pictureid")})
+            name = "news_picture",
+            joinColumns = {@JoinColumn(name = "newsId", referencedColumnName = "newsId")},
+            inverseJoinColumns = {@JoinColumn(name = "pictureId", referencedColumnName = "pictureId")})
     public List<Picture> pictures = new ArrayList<Picture>();
 
 }
