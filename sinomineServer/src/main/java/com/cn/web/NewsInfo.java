@@ -30,4 +30,12 @@ public class NewsInfo {
     public Page<News> findallorderbycreatetime(@PathVariable("pagesize") int pagesize, @PathVariable("pagenum") int pagenum) {
         return newsService.findAllOrderByCreateTime(pagesize, pagenum);
     }
+
+    @ApiOperation(value = "插入或更新指定新闻")
+    @ApiImplicitParams(value = {@ApiImplicitParam(value = "news", name = "news")})
+    @RequestMapping("/saveandflush/{news}")
+    public News saveAndFlush(News news){
+        return newsService.saveAndFlush(news);
+    }
+
 }

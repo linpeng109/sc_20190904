@@ -12,7 +12,7 @@ import java.util.List;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "exampletype")
+@DiscriminatorColumn(name = "exampletype", length = 31)
 @GenericGenerator(name = "example-uuid", strategy = "uuid")
 @Table(name = "example")
 @Data

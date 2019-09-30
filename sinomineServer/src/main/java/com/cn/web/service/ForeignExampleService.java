@@ -22,6 +22,10 @@ public class ForeignExampleService {
         foreignExampleDao.delete(foreignExample);
     }
 
+    public ForeignExample findById(String exampleId) {
+        return foreignExampleDao.getOne(exampleId);
+    }
+
     public Page<ForeignExample> findAllOrderByCreateTime(int pagesize, int pagenum) {
         Sort sort = new Sort(Sort.Direction.DESC, "createTime");
         Pageable pageable = PageRequest.of(pagesize, pagenum, sort);

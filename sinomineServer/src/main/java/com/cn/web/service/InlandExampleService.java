@@ -22,6 +22,10 @@ public class InlandExampleService {
         inlandExampleDao.delete(inlandExample);
     }
 
+    public InlandExample findById(String exampleId) {
+        return inlandExampleDao.getOne(exampleId);
+    }
+
     public Page<InlandExample> findAllOrderByCreateTime(int pagesize, int pagenum) {
         Sort sort = new Sort(Sort.Direction.DESC, "createTime");
         Pageable pageable = PageRequest.of(pagesize, pagenum, sort);

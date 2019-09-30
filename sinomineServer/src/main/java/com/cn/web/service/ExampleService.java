@@ -20,6 +20,10 @@ public class ExampleService {
         exampleDao.delete(example);
     }
 
+    public Example findById(String exampleId) {
+        return exampleDao.getOne(exampleId);
+    }
+
     public Page<Example> findAllOrderByCreateTime(int pagesize, int pagenum) {
         Sort sort = new Sort(Sort.Direction.DESC, "createTime");
         Pageable pageable = PageRequest.of(pagesize, pagenum, sort);

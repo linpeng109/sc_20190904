@@ -18,6 +18,10 @@ public class ClazzSupportService {
         return clazzSupportDao.saveAndFlush(clazzSupport);
     }
 
+    public ClazzSupport findById(String supportId) {
+        return clazzSupportDao.getOne(supportId);
+    }
+
     public void delete(ClazzSupport clazzSupport) {
         clazzSupportDao.delete(clazzSupport);
     }

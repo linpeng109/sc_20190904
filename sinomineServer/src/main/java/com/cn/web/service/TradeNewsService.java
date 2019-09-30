@@ -22,14 +22,18 @@ public class TradeNewsService {
         tradeNewsDao.delete(tradeNews);
     }
 
-    public Page<TradeNews> findallorderbycreatetime(int pagesize, int pagenum) {
+    public TradeNews findById(String newsId) {
+        return tradeNewsDao.getOne(newsId);
+    }
+
+    public Page<TradeNews> findAllOrderByCreateTime(int pagesize, int pagenum) {
         Sort sort = new Sort(Sort.Direction.DESC, "createTime");
         Pageable pageable = PageRequest.of(pagesize, pagenum, sort);
         return tradeNewsDao.findAll(pageable);
     }
 
-    public Page<TradeNews> findallorderbyordernum(int pagesize, int pagenum) {
-        Sort sort = new Sort(Sort.Direction.DESC, "ordernum");
+    public Page<TradeNews> findAllOrderByOrderNum(int pagesize, int pagenum) {
+        Sort sort = new Sort(Sort.Direction.DESC, "orderNum");
         Pageable pageable = PageRequest.of(pagesize, pagenum, sort);
         return tradeNewsDao.findAll(pageable);
     }

@@ -18,6 +18,10 @@ public class CompanyNewsService {
         return companyNewsDao.saveAndFlush(companyNews);
     }
 
+    public CompanyNews findById(String newId) {
+        return companyNewsDao.getOne(newId);
+    }
+
     public void delete(CompanyNews companyNews) {
         companyNewsDao.delete(companyNews);
     }

@@ -22,6 +22,10 @@ public class SupportService {
         supportDao.delete(support);
     }
 
+    public Support findById(String supportId) {
+        return supportDao.getOne(supportId);
+    }
+
     public Page<Support> findAllOrderByCreateTime(int pagesize, int pagenum) {
         Sort sort = new Sort(Sort.Direction.DESC, "createTime");
         Pageable pageable = PageRequest.of(pagesize, pagenum, sort);

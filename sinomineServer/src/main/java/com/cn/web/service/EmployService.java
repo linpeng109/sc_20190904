@@ -22,6 +22,10 @@ public class EmployService {
         employDao.delete(employ);
     }
 
+    public Employ findById(String employId) {
+        return employDao.getOne(employId);
+    }
+
     public Page<Employ> findAllOrderByCreateTime(int pagesize, int pagenum) {
         Sort sort = new Sort(Sort.Direction.DESC, "createTime");
         Pageable pageable = PageRequest.of(pagesize, pagenum, sort);

@@ -13,7 +13,7 @@ import java.util.List;
 @Entity
 @Table(name = "support")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "supportType")
+@DiscriminatorColumn(name = "supportType", length = 31)
 @GenericGenerator(name = "support-uuid", strategy = "uuid")
 @Data
 public class Support implements Serializable {
