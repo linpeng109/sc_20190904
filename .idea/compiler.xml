@@ -12,12 +12,14 @@
         <module name="userBaseServer2" />
         <module name="userBaseServer1" />
         <module name="sinomineServer" />
+        <module name="elasticServer" />
         <module name="gatewayServer" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="elasticServer" options="-parameters" />
       <module name="ftpServer" options="-parameters" />
       <module name="ftpserver" options="-parameters" />
       <module name="gatewayServer" options="-parameters" />

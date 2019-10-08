@@ -1,0 +1,42 @@
+server:
+  port: 8601
+spring:
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        instance-id: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
+  application:
+    name: ElasticServer
+  profiles:
+    active: native
+  devtools:
+    restart:
+      enabled: true
+      additional-paths: src/main
+    livereload:
+      enabled: true
+  data:
+    elasticsearch:
+      cluster-nodes: localhost:9300
+      cluster-name: elasticsearch
+      repositories:
+        enabled: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    restart:
+      enabled: true
+    shutdown:
+      enabled: true
+    health:
+      enabled: true
+      show-details: always
+logging:
+  level:
+    root: error
+    com.cn: debug
