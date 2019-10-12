@@ -1,25 +1,30 @@
 package com.cn.web;
 
-import com.cn.elastic.dao.EmployeeDao;
 import com.cn.elastic.entity.Employee;
+import com.cn.web.service.ElasticService;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.UUID;
+
 @RestController
-@RequestMapping("/employeeinfo")
+@RequestMapping("/elasticinfo")
 @Log4j2
-public class EmployeeInfo {
+public class ElasticInfo {
     @Autowired
-    private EmployeeDao employeeDao;
+    private ElasticService employeeService;
 
     @RequestMapping("/insert/{num}")
     public String save(@PathVariable("num") int num) {
         for (int i = 0; i < num; ++i) {
             Employee employee = new Employee();
-            employeeDao.save(employee);
+            String randomStr = UUID.randomUUID().toString();
+            employee.setFirstName(randomStr.substring(0, 8));
+            employee.setLastName(randomStr.substring(9));
+            employeeService.save(employee);
             log.debug(employee.getId());
         }
         return "Success";
@@ -27,6 +32,6 @@ public class EmployeeInfo {
 
     @RequestMapping("/count")
     public long count() {
-        return employeeDao.count();
+        return employeeService.count();
     }
 }

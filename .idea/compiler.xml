@@ -14,6 +14,7 @@
         <module name="sinomineServer" />
         <module name="elasticServer" />
         <module name="gatewayServer" />
+        <module name="kafkaServer" />
       </profile>
     </annotationProcessing>
   </component>
@@ -23,6 +24,7 @@
       <module name="ftpServer" options="-parameters" />
       <module name="ftpserver" options="-parameters" />
       <module name="gatewayServer" options="-parameters" />
+      <module name="kafkaServer" options="-parameters" />
       <module name="sinomineServer" options="-parameters" />
       <module name="userBaseServer1" options="-parameters" />
       <module name="userBaseServer2" options="-parameters" />

@@ -1,5 +1,5 @@
 server:
-  port: 8601
+  port: 8602
 spring:
   cloud:
     consul:
@@ -8,38 +8,31 @@ spring:
       discovery:
         instance-id: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
   application:
-    name: ElasticServer
+    name: KafkaServer
   profiles:
     active: native
   devtools:
-    restart:
-      enabled: true
-      additional-paths: src/main
     livereload:
       enabled: true
+      port: 35729
+    remote:
+      restart:
+        enabled: true
   kafka:
     bootstrap-servers: localhost:9092
     consumer:
-      group-id: test-group
-  data:
-    elasticsearch:
-      cluster-nodes: localhost:9300
-      cluster-name: elasticsearch
-      repositories:
-        enabled: true
+      group-id: test-group-2
 management:
   endpoints:
     web:
       exposure:
         include: "*"
   endpoint:
-    restart:
-      enabled: true
-    shutdown:
-      enabled: true
     health:
       enabled: true
       show-details: always
+    shutdown:
+      enabled: true
 logging:
   level:
     root: error
