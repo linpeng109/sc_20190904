@@ -3,7 +3,7 @@ server:
 spring:
   cloud:
     consul:
-      host: localhost
+      host: 192.168.1.129
       port: 8500
       discovery:
         instance-id: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
@@ -18,12 +18,12 @@ spring:
     livereload:
       enabled: true
   kafka:
-    bootstrap-servers: localhost:9092
+    bootstrap-servers: 192.168.1.129:9092
     consumer:
       group-id: test-group
   data:
     elasticsearch:
-      cluster-nodes: localhost:9300
+      cluster-nodes: 192.168.1.129:9300
       cluster-name: elasticsearch
       repositories:
         enabled: true

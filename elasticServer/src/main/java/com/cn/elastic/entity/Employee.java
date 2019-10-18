@@ -1,14 +1,11 @@
 package com.cn.elastic.entity;
-
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
 import org.springframework.data.elasticsearch.annotations.FieldType;
-
 import java.util.Date;
 import java.util.UUID;
-
 @Data
 @Document(indexName = "employeeindex", type = "Employee")
 public class Employee {
