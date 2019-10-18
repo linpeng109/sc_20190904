@@ -18,7 +18,7 @@ public class FtpServerFtplet extends DefaultFtplet {
 
     @Override
     public FtpletResult onLogin(FtpSession session, FtpRequest request) throws FtpException, IOException {
-        log.debug("===="+request.getArgument());
+        log.debug("====" + request.getArgument());
         return super.onLogin(session, request);
     }
 
