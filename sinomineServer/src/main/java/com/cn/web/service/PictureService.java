@@ -27,12 +27,12 @@ public class PictureService {
     }
 
     public Page<Picture> findAllOrderByCreateTime(int pagesize, int pagenum) {
-        Sort sort = new Sort(Sort.Direction.DESC, "createTime");
+        Sort sort = Sort.by(Sort.Direction.DESC, "createTime");
         Pageable pageable= PageRequest.of(pagesize,pagenum,sort);
         return pictureDao.findAll(pageable);
     }
     public Page<Picture> findAllOrderByOrderNum(int pagesize,int pagenum){
-        Sort sort=new Sort(Sort.Direction.DESC,"orderNum");
+        Sort sort=Sort.by(Sort.Direction.DESC,"orderNum");
         Pageable pageable=PageRequest.of(pagesize,pagenum,sort);
         return pictureDao.findAll(pageable);
     }

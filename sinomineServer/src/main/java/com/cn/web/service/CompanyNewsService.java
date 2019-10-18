@@ -27,13 +27,13 @@ public class CompanyNewsService {
     }
 
     public Page<CompanyNews> findallorderbycreatetime(int pagesize, int pagenum) {
-        Sort sort = new Sort(Sort.Direction.DESC, "createTime");
+        Sort sort = Sort.by(Sort.Direction.DESC, "createTime");
         Pageable pageable = PageRequest.of(pagesize, pagenum, sort);
         return companyNewsDao.findAll(pageable);
     }
 
     public Page<CompanyNews> findallorderbyordernum(int pagesize, int pagenum) {
-        Sort sort = new Sort(Sort.Direction.DESC, "ordernum");
+        Sort sort = Sort.by(Sort.Direction.DESC, "ordernum");
         Pageable pageable = PageRequest.of(pagesize, pagenum, sort);
         return companyNewsDao.findAll(pageable);
     }

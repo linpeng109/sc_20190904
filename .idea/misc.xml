@@ -9,6 +9,7 @@
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/kafkaServer/pom.xml" />
+        <option value="$PROJECT_DIR$/gatewayServer/pom.xml" />
       </list>
     </option>
   </component>

@@ -9,6 +9,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+
 @Service
 public class ActionNewsService {
     @Autowired
@@ -27,14 +29,13 @@ public class ActionNewsService {
     }
 
     public Page<ActionNews> findAllOrderByCreateTime(int pagesize, int pagenum) {
-        Sort sort = new Sort(Sort.Direction.DESC, "createTime");
+        Sort sort = Sort.by(Sort.Direction.DESC, "createTime");
         Pageable pageable = PageRequest.of(pagesize, pagenum, sort);
-        return actionNewsDao.findAll(pageable)
-                ;
+        return actionNewsDao.findAll(pageable);
     }
 
     public Page<ActionNews> findAllOrderByOrderNum(int pagesize, int pagenum) {
-        Sort sort = new Sort(Sort.Direction.DESC, "ordernum");
+        Sort sort = Sort.by(Sort.Direction.DESC, "ordernum");
         Pageable pageable = PageRequest.of(pagesize, pagenum, sort);
         return actionNewsDao.findAll(pageable);
     }
