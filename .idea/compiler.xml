@@ -9,9 +9,9 @@
         <outputRelativeToContentRoot value="true" />
         <module name="ftpserver" />
         <module name="ftpServer" />
-        <module name="elasticServer2" />
-        <module name="userBaseServer2" />
         <module name="userBaseServer1" />
+        <module name="userBaseServer2" />
+        <module name="elasticServer2" />
         <module name="elasticServer1" />
         <module name="sinomineServer" />
         <module name="gatewayServer" />

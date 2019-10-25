@@ -22,7 +22,6 @@
         <module>ftpserver</module>
         <module>kafkaServer</module>
         <module>sinomineServer</module>
-        <module>elasticServer</module>
         <module>elasticServer1</module>
         <module>elasticServer2</module>
     </modules>

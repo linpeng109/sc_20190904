@@ -23,6 +23,12 @@ spring:
       discovery:
         enabled: true
         instance-id: ${spring.application.name}
+  kafka:
+    consumer:
+      group-id: kafka-elasticServer1
+      bootstrap-servers: 192.168.1.129:9092
+    producer:
+      bootstrap-servers: 192.168.1.129:9092
 management:
   endpoints:
     web:
