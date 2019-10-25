@@ -7,6 +7,7 @@ spring:
       port: 8500
       discovery:
         instance-id: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
+        enabled: true
   application:
     name: UserServer2
   profiles:
@@ -14,8 +15,8 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
-    password: admin
-    url: jdbc:mysql://localhost:3306/mysql_userserver?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&characterSetResults=utf8
+    password: 123456789
+    url: jdbc:mysql://192.168.1.129:3306/mysql_userserver?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&characterSetResults=utf8
   jpa:
     database: mysql
     hibernate:

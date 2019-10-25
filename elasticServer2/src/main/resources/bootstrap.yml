@@ -1,0 +1,37 @@
+server:
+  port: 8602
+spring:
+  application:
+    name: ElasticServer2
+  profiles:
+    active: native
+  devtools:
+    restart:
+      enabled: true
+      additional-paths: src/main
+    livereload:
+      enabled: true
+      port: 35729
+  cloud:
+    consul:
+      host: 192.168.1.129
+      port: 8500
+      discovery:
+        enabled: true
+        instance-id: ${spring.application.name}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+    shutdown:
+      enabled: true
+    restart:
+      enabled: true
+logging:
+  level:
+    root: error
+    com.cn: debug

@@ -2,15 +2,20 @@ server:
   port: 8601
 spring:
   cloud:
+    config:
+      fail-fast: true
+      retry:
+        initial-interval: 1000
+        max-interval: 2000
     consul:
       host: 192.168.1.129
       port: 8500
       discovery:
-        instance-id: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
+        instance-id: ${spring.application.name}
   application:
     name: ElasticServer
-  profiles:
-    active: native
+  #  profiles:
+  #    active: native
   devtools:
     restart:
       enabled: true
@@ -23,10 +28,10 @@ spring:
       group-id: test-group
   data:
     elasticsearch:
-      cluster-nodes: 192.168.1.129:9300
-      cluster-name: elasticsearch
       repositories:
-        enabled: true
+      enabled: true
+      cluster-name: elastic-cluster
+      cluster-nodes: 192.168.1.129:9300
 management:
   endpoints:
     web:

@@ -6,7 +6,7 @@ spring:
       host: 192.168.1.129
       port: 8500
       discovery:
-        instance-id: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
+        instance-id: ${spring.application.name}
   application:
     name: UserServer1
   profiles:

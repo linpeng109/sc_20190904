@@ -1,0 +1,26 @@
+<html>
+<head>
+<title>report</title>
+</head>
+
+<body>
+<h2>报表系统</h2>
+
+<a href="http://192.168.1.115:8075/WebReport/ReportServer?reportlet=mes/opmplan.cpt">采剥计划表</a><p/>
+<a href="http://192.168.1.115:8075/WebReport/ReportServer?reportlet=mes/dcxktclbb.cpt">储量报告表</a><p/>
+<a href="http://192.168.1.115:8075/WebReport/ReportServer?reportlet=mes/optcdb.cpt">探采对比表</a><p/>
+<a href="http://192.168.1.115:8075/WebReport/ReportServer?reportlet=mes/opbdtj.cpt">爆堆统计表</a><p/>
+<a href="http://192.168.1.115:8075/WebReport/ReportServer?reportlet=mes/opysfl.cpt">验收方量汇总表</a><p/>
+<a href="http://192.168.1.115:8075/WebReport/ReportServer?reportlet=mes/opgkb.cpt">金铜月供矿表</a><p/>
+<a href="http://192.168.1.115:8075/WebReport/ReportServer?reportlet=mes/opptcjh.cpt">排土场计划表</a><p/>
+<a href="http://192.168.1.115:8075/WebReport/ReportServer?reportlet=mes/dcdzclb.cpt">地质储量表</a><p/>
+<a href="http://192.168.1.115:8075/WebReport/ReportServer?reportlet=mes/dctcdbb.cpt">矿体形态对比表</a><p/>
+<a href="http://192.168.1.115:8075/WebReport/ReportServer?reportlet=mes/dcdkyskdbb.cpt">地勘生勘对比表</a><p/>
+<a href="http://192.168.1.115:8075/WebReport/ReportServer?reportlet=mes/dckfckltjb.cpt">生勘与出矿对比表</a><p/>
+<a href="http://192.168.1.115:8075/WebReport/ReportServer?reportlet=mes/dcbyclb.cpt">保有储量表</a><p/>
+<a href="http://192.168.1.115:8075/WebReport/ReportServer?reportlet=mes/dcxhclb.cpt">消耗储量表</a><p/>
+<a href="http://192.168.1.115:8075/WebReport/ReportServer?reportlet=mes/dcsjklphb.cpt">三级矿量表</a><p/>
+<a href="http://192.168.1.115:8075/WebReport/ReportServer?reportlet=mes/dcskgctjb.cpt">矿房单体设计表</a><p/>
+<a href="http://192.168.1.115:8075/WebReport/ReportServer?reportlet=mes/DCKFXXB.cpt">炮孔数据表</a><p/>
+</body>
+</html>

@@ -1,1 +1,66 @@
-
+server:
+  port: 8800
+spring:
+  application:
+    name: GateWayServer1
+  profiles:
+    active: native
+  cloud:
+    consul:
+      host: 192.168.1.129
+      port: 8500
+      discovery:
+        instance-id: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
+        health-check-path: /actuator/health
+        health-check-interval: 10s
+        service-name: ${spring.application.name}
+    gateway:
+      enabled: true
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      default-filters:
+        - name: Hystrix
+          args:
+            name: fallbackcmd
+            fallbackUri: forward://fallbackcontroller
+      routes:
+        - id: userbaseserver_1
+          uri: lb://UserServer1
+          predicates:
+            - Path=/userbaseserver/**
+            - Weight=userbaseserver,70
+          filters:
+            - StripPrefix=1
+        - id: userbaseserver_2
+          uri: lb://UserServer2
+          predicates:
+            - Path=/userbaseserver/**
+            - Weight=userbaseserver,30
+          filters:
+            - StripPrefix=1
+  devtools:
+    restart:
+      enabled: true
+      additional-paths: src/main
+    livereload:
+      enabled: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    restart:
+      enabled: true
+    shutdown:
+      enabled: true
+    health:
+      enabled: true
+      show-details: always
+logging:
+  level:
+    root: error
+    com.cn: debug
+    com.cn.ftp: debug

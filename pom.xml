@@ -23,6 +23,7 @@
         <module>kafkaServer</module>
         <module>sinomineServer</module>
         <module>elasticServer</module>
+        <module>elasticServer2</module>
     </modules>
     <properties>
         <java.version>1.8</java.version>
@@ -67,6 +68,10 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-consul-discovery</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-consul-config</artifactId>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
