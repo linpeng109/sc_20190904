@@ -1,33 +1,30 @@
 package com.cn.web;
 
 import com.cn.elastic.entity.Employee;
-import com.cn.web.service.ElasticService;
-import lombok.extern.log4j.Log4j2;
+import com.cn.web.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.UUID;
+import java.util.*;
 
 @RestController
 @RequestMapping("/elasticinfo")
-@Log4j2
 public class ElasticInfo {
     @Autowired
-    private ElasticService employeeService;
+    private EmployeeService employeeService;
 
-    @RequestMapping("/insert/{num}")
-    public String save(@PathVariable("num") int num) {
+    @RequestMapping("/save/{num}")
+    public List<Employee> save(@PathVariable("num") int num) {
+        List<Employee> list = new ArrayList<Employee>();
         for (int i = 0; i < num; ++i) {
             Employee employee = new Employee();
-            String randomStr = UUID.randomUUID().toString();
-            employee.setFirstName(randomStr.substring(0, 8));
-            employee.setLastName(randomStr.substring(9));
-            employeeService.save(employee);
-            log.debug(employee.getId());
+            employee.id = UUID.randomUUID().toString();
+            employee.createTime = new Date();
+            list.add(employeeService.save(employee));
         }
-        return "Success";
+        return list;
     }
 
     @RequestMapping("/count")

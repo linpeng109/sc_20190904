@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/helloinfo")
 public class HelloInfo {
     @RequestMapping("hello")
-    public String hello() {
-        return "SUCCESS";
+    public String hello(){
+        return "Scuess ElasticServer !";
     }
 }

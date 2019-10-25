@@ -1,8 +1,8 @@
 server:
-  port: 8602
+  port: 8601
 spring:
   application:
-    name: ElasticServer2
+    name: ElasticServer1
   profiles:
     active: native
   devtools:
@@ -15,7 +15,7 @@ spring:
   elasticsearch:
     rest:
       uris: 192.168.1.129:9200
-      connection-timeout: 5s
+      connection-timeout: 15s
   cloud:
     consul:
       host: 192.168.1.129
@@ -23,6 +23,10 @@ spring:
       discovery:
         enabled: true
         instance-id: ${spring.application.name}
+  kafka:
+    bootstrap-servers: 192.168.1.129:9092
+    consumer:
+      group-id: kafka-elasticServer1
 management:
   endpoints:
     web:
