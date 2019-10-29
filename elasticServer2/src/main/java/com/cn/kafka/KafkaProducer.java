@@ -1,0 +1,21 @@
+package com.cn.kafka;
+
+import lombok.extern.log4j.Log4j2;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.stereotype.Service;
+import org.springframework.util.concurrent.ListenableFuture;
+
+@Service
+@Log4j2
+public class KafkaProducer {
+    @Autowired
+    private KafkaTemplate kafkaTemplate;
+
+    public void kafkaSendMessage(String topic, String message) {
+        ListenableFuture<String> listenableFuture = kafkaTemplate.send(topic, message);
+        listenableFuture.addCallback(
+                result -> log.debug(result),
+                throwable -> log.error(throwable));
+    }
+}

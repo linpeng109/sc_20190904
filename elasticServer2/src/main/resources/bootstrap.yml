@@ -23,6 +23,8 @@ spring:
       discovery:
         enabled: true
         instance-id: ${spring.application.name}
+    config:
+      fail-fast: true
   kafka:
     consumer:
       group-id: kafka-elasticServer1
