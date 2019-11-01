@@ -8,12 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/helloinfo")
 public class HelloWorldInfo {
     @RequestMapping("/hello")
-    @HystrixCommand(fallbackMethod = "helloinfoHelloFailBack")
     public String getHello() throws Throwable {
-        throw new Throwable();
-    }
-
-    public String helloinfoHelloFailBack() {
-        return "userbaseserver 1 error";
+        throw new Throwable("aabbcc");
     }
 }

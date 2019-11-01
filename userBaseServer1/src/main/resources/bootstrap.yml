@@ -27,6 +27,7 @@ spring:
       additional-paths: src/main
     livereload:
       enabled: true
+
 management:
   endpoints:
     web:
