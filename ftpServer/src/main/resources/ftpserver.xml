@@ -1,0 +1,23 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:beans="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://mina.apache.org/ftpserver/spring/v1 http://mina.apache.org/ftpserver/ftpserver-1.0.xsd">
+    <server xmlns="http://mina.apache.org/ftpserver/spring/v1"
+            id="ftpserver"
+            max-logins="500"
+            anon-enabled="false"
+            max-anon-logins="123"
+            max-login-failures="124"
+            login-failure-delay="125">
+        <listeners>
+            <nio-listener name="default" local-address="127.0.0.1" port="2121"/>
+        </listeners>
+        <ftplets>
+            <ftplet name="fileUpdateEndFtplet">
+                <beans:bean class="com.cn.ftp.ftplet.FileUpdateEndFtplet"/>
+            </ftplet>
+        </ftplets>
+        <file-user-manager encrypt-passwords="clear" file="classpath:ftpuser.properties"/>
+    </server>
+</beans>

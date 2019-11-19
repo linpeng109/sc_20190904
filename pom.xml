@@ -11,7 +11,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.2.0.RELEASE</version>
+        <version>2.2.1.RELEASE</version>
         <relativePath/>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -19,7 +19,8 @@
         <module>userBaseServer1</module>
         <module>userBaseServer2</module>
         <module>gatewayServer</module>
-        <module>ftpserver</module>
+        <module>securityServer</module>
+        <module>ftpServer</module>
         <module>kafkaServer</module>
         <module>sinomineServer</module>
         <module>elasticServer1</module>
