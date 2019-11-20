@@ -25,6 +25,7 @@
         <module>sinomineServer</module>
         <module>elasticServer1</module>
         <module>elasticServer2</module>
+        <module>integrationServer</module>
     </modules>
     <properties>
         <java.version>1.8</java.version>
