@@ -20,6 +20,14 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.integration</groupId>
+<<<<<<< HEAD
+=======
+            <artifactId>spring-integration-kafka</artifactId>
+            <version>3.1.0.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.integration</groupId>
+>>>>>>> b7200e986c883b89223435b0905f1deeedca7097
             <artifactId>spring-integration-test</artifactId>
             <scope>test</scope>
         </dependency>

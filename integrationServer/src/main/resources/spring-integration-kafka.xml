@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:si="http://www.springframework.org/schema/integration"
        xmlns:int-kafka="http://www.springframework.org/schema/integration/kafka"
@@ -14,6 +15,28 @@
                                         message-key-expression="'bar'"
                                         partition-id-expression="2">
     </int-kafka:outbound-channel-adapter>
+=======
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:si="http://www.springframework.org/schema/integration"
+       xmlns:si-kafka="http://www.springframework.org/schema/integration/kafka"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/integration
+	    http://www.springframework.org/schema/integration/spring-integration.xsd
+		http://www.springframework.org/schema/integration/kafka
+		http://www.springframework.org/schema/integration/kafka/spring-integration-kafka.xsd">
+
+    <si:channel id="inputToKafka"></si:channel>
+    <si-kafka:outbound-channel-adapter id="outboundChannelAdapter"
+                                       kafka-template="template"
+                                       send-success-channel="inputToKafka"
+                                       topic="test2"
+                                       message-key-expression="'bar'"
+                                       partition-id-expression="2">
+    </si-kafka:outbound-channel-adapter>
+>>>>>>> b7200e986c883b89223435b0905f1deeedca7097
 
     <bean id="template" class="org.springframework.kafka.core.KafkaTemplate">
         <constructor-arg>

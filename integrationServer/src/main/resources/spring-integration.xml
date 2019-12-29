@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:si="http://www.springframework.org/schema/integration"
+       xsi:schemaLocation=
+               "http://www.springframework.org/schema/beans
+                http://www.springframework.org/schema/beans/spring-beans.xsd
+		        http://www.springframework.org/schema/integration
+		        http://www.springframework.org/schema/integration/spring-integration.xsd">
+    <si:poller default="true" fixed-rate="50" max-messages-per-poll="10"/>
+
+    <si:logging-channel-adapter id="debug" level="DEBUG" log-full-message="true"/>
+
+    <si:logging-channel-adapter id="error" level="ERROR" log-full-message="true"/>
+
+</beans>
